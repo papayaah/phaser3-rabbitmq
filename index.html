@@ -2,17 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <style>
+      html,
+      body {
+        background: #000;
+        margin: 0;
+        padding: 0;
+           image-rendering: optimizeSpeed;              /* Older versions of FF */
+        image-rendering: -moz-crisp-edges;           /* FF 6.0+ */
+        image-rendering: -webkit-optimize-contrast;  /* Webkit (non standard naming) */
+        image-rendering: -o-crisp-edges;             /* OS X & Windows Opera (12.02+) */
+        image-rendering: crisp-edges;                /* Possible future browsers. */
+        -ms-interpolation-mode: nearest-neighbor;    /* IE (non standard naming) */
+        image-rendering: pixelated;                  /* Chrome 41 */
+        text-align: center;
+      }
+      .main {
+        height: 504px;
+        margin: 5rem auto;
+        position: relative;
+        width: 896px;
+      }
+      #phaserCanvas {
+        position: absolute;
+        top: 0;
+      }
+    </style>
   </head>
   <body>
-      <div id="muteYouTubeVideoPlayer"></div>
 <script async src="https://www.youtube.com/iframe_api"></script>
 <script>
  function onYouTubeIframeAPIReady() {
   var player;
-  player = new YT.Player('muteYouTubeVideoPlayer', {
+  player = new YT.Player('youTubeVideoPlayer', {
     videoId: 'Jjmqkq10kxY', // YouTube Video ID
-    width: 560,               // Player width (in px)
-    height: 316,              // Player height (in px)
+    width: 896,               // Player width (in px)
+    height: 504,              // Player height (in px)
     playerVars: {
       autoplay: 1,        // Auto-play the video on load
       controls: 0,        // Show pause/play buttons in player
@@ -34,9 +59,9 @@
 
  // Written by @labnol
 </script>
-
-
-    </body>
-
-
+    <div class="main">
+      <div id="youTubeVideoPlayer"></div>
+      <div id="phaserCanvas"></div>
+    </div>
+  </body>
 </html>
